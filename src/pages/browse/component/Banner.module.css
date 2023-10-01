@@ -1,0 +1,33 @@
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  height: auto;
+  padding: 0px 12px 0px 12px;
+  padding-top: 12vh;
+  padding-bottom: 8vh;
+}
+.banner-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 6vh;
+}
+.button-container {
+  width: 30vw;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 2vh;
+}
+button {
+  padding: 6px 18px 6px 18px;
+  border: 0px;
+  border-radius: 4px;
+  background-color: rgb(23, 23, 23, 0.6);
+  color: white;
+}
+.banner-description {
+  width: 30vw;
+
+  font-size: 12px;
+}

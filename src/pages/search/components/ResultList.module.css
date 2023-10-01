@@ -1,0 +1,14 @@
+.result-container {
+  margin: 5vh 3vh 10vh 3vh;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 5px;
+}
+.movie-detail {
+  background-color: aqua;
+}
+.max-content {
+  margin: auto;
+  width: 70%;
+  justify-content: center;
+}
