@@ -10,13 +10,14 @@ const MovieDetail = (props) => {
   const [key, setKey] = useState("");
   //Biến check lỗi
   const [hasError, setHasError] = useState(false);
-
+const [isLoading, setIsLoading] = useState(false);
   const movie = props.movieData;
   const movieID = props.movieID;
 
   //Get key for Youtube link
   useEffect(() => {
     const showVideo = async () => {
+      setIsLoading(true);
       const results = await fetch(
         `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${API_KEY}`
       );
@@ -38,6 +39,7 @@ const MovieDetail = (props) => {
       }
     };
     showVideo();
+    setIsLoading(false);
   }, []);
   //Trailer của movie
   let trailer = (
@@ -71,7 +73,7 @@ const MovieDetail = (props) => {
   return (
     <div>
       {hasError && <p>Something went wrong!</p>}
-      {!hasError && (
+      {!hasError && !isLoading && (
         <div className={classes["detail-movie_container"]}>
           <div>
             <div className={classes["movie-detail_title"]}>
