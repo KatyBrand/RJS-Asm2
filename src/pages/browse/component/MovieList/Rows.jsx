@@ -45,7 +45,7 @@ const Rows = (props) => {
   return (
     <div>
       <div className={classes["movies-container"]} {...events} ref={ref}>
-        {isLoading && <p style={{textAlign: 'center'}}>Loading...</p>}
+        {/* {isLoading && <p style={{textAlign: 'center'}}>Loading...</p>} */}
         {!isLoading &&
           movieData.map((mov, i) => {
             return (
