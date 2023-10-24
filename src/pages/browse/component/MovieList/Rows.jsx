@@ -9,7 +9,7 @@ const imgPath = "https://image.tmdb.org/t/p/original/";
 
 const Rows = (props) => {
   const [movieData, setMovieData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [movieID, setMovieID] = useState("");
   const [detailedMovie, setDetailedMovie] = useState([]);
@@ -27,6 +27,7 @@ const Rows = (props) => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetchMovie();
     setIsLoading(false);
   }, []);
@@ -44,6 +45,7 @@ const Rows = (props) => {
   return (
     <div>
       <div className={classes["movies-container"]} {...events} ref={ref}>
+        {isLoading && <p style={{textAlign: 'center'}}>Loading...</p>}
         {!isLoading &&
           movieData.map((mov, i) => {
             return (

@@ -9,7 +9,7 @@ const imgPath = "https://image.tmdb.org/t/p/original/";
 
 const Original = (props) => {
   const [movieData, setMovieData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [movieID, setMovieID] = useState("");
   const [detailedMovie, setDetailedMovie] = useState([]);
   //State click để xem chi tiết của từng movie
@@ -27,6 +27,7 @@ const Original = (props) => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetchMovie();
     setIsLoading(false);
   }, []);
