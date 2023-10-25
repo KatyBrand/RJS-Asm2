@@ -47,7 +47,9 @@ const MovieDetail = (props) => {
         //     src={`https://www.youtube.com/embed/${key}`}
         //   ></iframe>
         // );
-        console.log(key);
+        // console.log(key);
+        
+    setIsLoading(false);
         if (!key) {
           trailer = (
             <img
@@ -64,7 +66,6 @@ const MovieDetail = (props) => {
       }
     };
     showVideo();
-    setIsLoading(false);
   }, []);
   //Trailer của movie
   // let trailer = (
@@ -82,7 +83,7 @@ const MovieDetail = (props) => {
       style={{ width: "50%", display: "block", margin: "auto" }}
     />
   );
-  console.log(trailer);
+  // console.log(trailer);
   //Nếu ko tìm trailer - thay bằng poster
   //Nếu ko có poster thì thay bằng ảnh mặc định Netflix
   if (key) {
