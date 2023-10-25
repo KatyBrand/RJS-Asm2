@@ -76,7 +76,7 @@ const MovieDetail = (props) => {
   //   ></iframe>
   // );
   let trailer = <p>Loading...</p>;
-  console.log(key);
+  console.log(trailer);
   //Nếu ko tìm trailer - thay bằng poster
   //Nếu ko có poster thì thay bằng ảnh mặc định Netflix
   if (key) {
