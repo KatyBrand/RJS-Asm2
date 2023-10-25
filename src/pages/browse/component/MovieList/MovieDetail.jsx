@@ -54,8 +54,17 @@ const [isLoading, setIsLoading] = useState(false);
   let trailer = <p>Loading movies...</p>;
   //Nếu ko tìm trailer - thay bằng poster
   //Nếu ko có poster thì thay bằng ảnh mặc định Netflix
-  if (!key) {
-    if (movie.poster_path) {
+  if (key) {
+    trailer = (
+      <iframe
+        frameBorder="0"
+        width="100%"
+        height="350px"
+        src={`https://www.youtube.com/embed/${key}`}
+      ></iframe>
+    );
+  } else {
+   if (movie.poster_path) {
      trailer = (
         <img
           src={`${imgPath}${movie.poster_path}`}
@@ -70,15 +79,6 @@ const [isLoading, setIsLoading] = useState(false);
         />
       );
     }
-  } else {
-    trailer = (
-      <iframe
-        frameBorder="0"
-        width="100%"
-        height="350px"
-        src={`https://www.youtube.com/embed/${key}`}
-      ></iframe>
-    );
   }
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
