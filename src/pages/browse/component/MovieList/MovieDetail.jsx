@@ -80,7 +80,9 @@ const [isLoading, setIsLoading] = useState(false);
       ></iframe>
     );
   }
-
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
   return (
     <div>
       {hasError && <p>Something went wrong!</p>}
@@ -98,7 +100,7 @@ const [isLoading, setIsLoading] = useState(false);
               Vote: {movie.vote_average}/10
             </div>
             <div className={classes["movie-detail_overview"]}>
-              {movie.overview}
+              {truncate(movie?.overview, 150)}
             </div>
           </div>
           <div>{trailer}</div>

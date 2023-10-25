@@ -19,8 +19,10 @@ const Rows = (props) => {
   const { events } = useDraggable(ref);
   let movieList = [];
   //Fetch Movie
+  console.log(`${baseURL}${props.request}`)
   const fetchMovie = async () => {
     const results = await fetch(`${baseURL}${props.request}`);
+    
     const data = await results.json();
     movieList.push(data.results);
     setMovieData(movieList[0]);
