@@ -47,6 +47,7 @@ const MovieDetail = (props) => {
         //     src={`https://www.youtube.com/embed/${key}`}
         //   ></iframe>
         // );
+        console.log(key)
         if (!key) {
           if (movie.poster_path) {
             trailer = (
