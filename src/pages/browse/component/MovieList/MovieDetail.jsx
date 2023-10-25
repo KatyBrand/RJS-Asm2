@@ -38,8 +38,8 @@ const [isLoading, setIsLoading] = useState(false);
         } else {
           setKey(data.results[0].key);
         } 
-        if (movieFound.length === 0) {
-          console.log(movieFound)
+        console.log(movieFound)
+        if (!movieFound) {
 
           if (movie.poster_path) {
             trailer = (
