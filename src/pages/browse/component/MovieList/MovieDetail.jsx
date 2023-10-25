@@ -51,7 +51,7 @@ const MovieDetail = (props) => {
         if (!key) {
           trailer = (
             <img
-            alt='poster'
+              alt="poster"
               src={
                 movie.poster_path
                   ? `${imgPath}${movie.poster_path}`
@@ -75,7 +75,13 @@ const MovieDetail = (props) => {
   //     src={`https://www.youtube.com/embed/${key}`}
   //   ></iframe>
   // );
-  let trailer = <p>Loading...</p>;
+  let trailer = (
+    <img
+      alt="poster"
+      src={`https://w0.peakpx.com/wallpaper/384/624/HD-wallpaper-netflix-logo-black-logo-netflix-pro-red.jpg`}
+      style={{ width: "50%", display: "block", margin: "auto" }}
+    />
+  );
   console.log(trailer);
   //Nếu ko tìm trailer - thay bằng poster
   //Nếu ko có poster thì thay bằng ảnh mặc định Netflix
