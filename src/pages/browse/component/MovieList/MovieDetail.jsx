@@ -11,6 +11,7 @@ const MovieDetail = (props) => {
   //Biến check lỗi
   const [hasError, setHasError] = useState(false);
 const [isLoading, setIsLoading] = useState(false);
+const [isLoadingKey, setIsLoadingKey] = useState(false);
 // const [isloaded, setLoadedTrailer] = useState(false);
   const movie = props.movieData;
   const movieID = props.movieID;
@@ -33,9 +34,13 @@ const [isLoading, setIsLoading] = useState(false);
         );
         //Nếu tìm được, lấy movie đầu tiêu; Nếu ko tìm được, lấy key của results đầu tiên
         if (movieFound.length > 0) {
+          setIsLoadingKey(true);
           setKey(movieFound[0].key);
+          setIsLoadingKey(false);
         } else {
+          setIsLoadingKey(true);
           setKey(data.results[0].key);
+          setIsLoadingKey(false);
         }
       }
     };
@@ -103,7 +108,7 @@ const [isLoading, setIsLoading] = useState(false);
               {truncate(movie?.overview, 150)}
             </div>
           </div>
-          <div>{trailer}</div>
+          <div>{isLoadingKey ? <p>Loading...</p> : trailer}</div>
         </div>
       )}
     </div>
