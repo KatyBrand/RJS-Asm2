@@ -33,12 +33,12 @@ const [isLoading, setIsLoading] = useState(false);
           (m) => m.site === "YouTube" && m.type === "Trailer"
         );
         //Nếu tìm được, lấy movie đầu tiêu; Nếu ko tìm được, lấy key của results đầu tiên
+        console.log(movieFound)
         if (movieFound.length > 0) {
           setKey(movieFound[0].key);
         } else {
           setKey(data.results[0].key);
         } 
-        console.log(movieFound)
         if (!movieFound) {
 
           if (movie.poster_path) {
