@@ -32,6 +32,7 @@ const SearchForm = () => {
       );
       const data = await results.json();
       setMovieData(data.results);
+      console.log(data.results);
 
       if (!data.results) {
         setHasNoResults(true);
