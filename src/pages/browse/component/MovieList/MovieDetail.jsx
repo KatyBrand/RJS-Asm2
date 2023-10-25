@@ -81,16 +81,16 @@ const [isLoading, setIsLoading] = useState(false);
   let trailer;
   //Nếu ko tìm trailer - thay bằng poster
   //Nếu ko có poster thì thay bằng ảnh mặc định Netflix
-  if (key) {
-    trailer = (
-      <iframe
-        frameBorder="0"
-        width="100%"
-        height="350px"
-        src={`https://www.youtube.com/embed/${key}`}
-      ></iframe>
-    );
-  } 
+  // if (key) {
+  //   trailer = (
+  //     <iframe
+  //       frameBorder="0"
+  //       width="100%"
+  //       height="350px"
+  //       src={`https://www.youtube.com/embed/${key}`}
+  //     ></iframe>
+  //   );
+  // } 
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
