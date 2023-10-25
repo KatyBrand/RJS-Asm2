@@ -87,7 +87,7 @@ const SearchForm = () => {
         </div>
       </div>
       {/* Khi ko có results */}
-      {hasNoResults && <p style={{textAlign: 'center'}}>No movies are found! Try another keyword</p>}
+      {hasNoResults && !isEmpty &&<p style={{textAlign: 'center'}}>No movies are found! Try another keyword</p>}
       <ResultList data={movieData} />
     </div>
   );

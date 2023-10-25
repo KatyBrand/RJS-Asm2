@@ -17,7 +17,7 @@ const Rows = (props) => {
 
   const ref = useRef(); // Use React useRef hook to reference the wrapping div:
   const { events } = useDraggable(ref);
-  let movieList = [];
+  let movieList = [];x
   //Fetch Movie
   const fetchMovie = async () => {
     const results = await fetch(`${baseURL}${props.request}`);
