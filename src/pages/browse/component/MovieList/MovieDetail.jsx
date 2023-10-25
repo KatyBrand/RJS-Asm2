@@ -42,14 +42,15 @@ const [isLoading, setIsLoading] = useState(false);
     setIsLoading(false);
   }, []);
   //Trailer của movie
-  let trailer = (
-    <iframe
-      frameBorder="0"
-      width="100%"
-      height="350px"
-      src={`https://www.youtube.com/embed/${key}`}
-    ></iframe>
-  );
+  // let trailer = (
+  //   <iframe
+  //     frameBorder="0"
+  //     width="100%"
+  //     height="350px"
+  //     src={`https://www.youtube.com/embed/${key}`}
+  //   ></iframe>
+  // );
+  let trailer = <p>Loading movies...</p>;
   //Nếu ko tìm trailer - thay bằng poster
   //Nếu ko có poster thì thay bằng ảnh mặc định Netflix
   if (!key) {
@@ -68,6 +69,15 @@ const [isLoading, setIsLoading] = useState(false);
         />
       );
     }
+  } else {
+    trailer = (
+      <iframe
+        frameBorder="0"
+        width="100%"
+        height="350px"
+        src={`https://www.youtube.com/embed/${key}`}
+      ></iframe>
+    );
   }
 
   return (
