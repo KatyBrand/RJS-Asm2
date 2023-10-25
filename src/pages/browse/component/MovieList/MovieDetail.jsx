@@ -113,7 +113,7 @@ const MovieDetail = (props) => {
               Release Date: {movie.release_date}
             </div>
             <div className={classes["movie-detail_header"]}>
-              Vote: {movie.vote_average}/10
+              Vote: {movie.vote_average.toFixed(1)}/10
             </div>
             <div className={classes["movie-detail_overview"]}>
               {truncate(movie?.overview, 150)}
