@@ -39,6 +39,8 @@ const [isLoading, setIsLoading] = useState(false);
           setKey(data.results[0].key);
         } 
         if (movieFound.length === 0) {
+          console.log(movieFound)
+
           if (movie.poster_path) {
             trailer = (
                <img
