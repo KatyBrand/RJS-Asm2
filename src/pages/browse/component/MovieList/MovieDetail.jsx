@@ -114,7 +114,7 @@ const [isLoading, setIsLoading] = useState(false);
               {truncate(movie?.overview, 150)}
             </div>
           </div>
-          <div>{isLoading ? <p>Loading...</p> : trailer}</div>
+          <div>{!isLoading ? <p>Loading...</p> : trailer}</div>
         </div>
       )}
     </div>
