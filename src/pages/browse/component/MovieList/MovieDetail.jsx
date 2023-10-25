@@ -11,6 +11,7 @@ const MovieDetail = (props) => {
   //Biến check lỗi
   const [hasError, setHasError] = useState(false);
 const [isLoading, setIsLoading] = useState(false);
+// const [isloaded, setLoadedTrailer] = useState(false);
   const movie = props.movieData;
   const movieID = props.movieID;
 
@@ -69,8 +70,7 @@ const [isLoading, setIsLoading] = useState(false);
         />
       );
     }
-  } 
-  useEffect(()=> {
+  } else {
     trailer = (
       <iframe
         frameBorder="0"
@@ -79,7 +79,7 @@ const [isLoading, setIsLoading] = useState(false);
         src={`https://www.youtube.com/embed/${key}`}
       ></iframe>
     );
-  }, [key]);
+  }
 
   return (
     <div>
