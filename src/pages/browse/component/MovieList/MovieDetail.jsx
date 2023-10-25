@@ -49,12 +49,11 @@ const MovieDetail = (props) => {
         // );
         // console.log(key);
         
-    setIsLoading(false);
         if (!key) {
           trailer = (
             <img
-              alt="poster"
-              src={
+            alt="poster"
+            src={
                 movie.poster_path
                   ? `${imgPath}${movie.poster_path}`
                   : `https://w0.peakpx.com/wallpaper/384/624/HD-wallpaper-netflix-logo-black-logo-netflix-pro-red.jpg`
@@ -66,6 +65,7 @@ const MovieDetail = (props) => {
       }
     };
     showVideo();
+    setIsLoading(false);
   }, []);
   //Trailer của movie
   // let trailer = (
