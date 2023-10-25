@@ -56,7 +56,7 @@ const [isLoadingKey, setIsLoadingKey] = useState(false);
   //     src={`https://www.youtube.com/embed/${key}`}
   //   ></iframe>
   // );
-  let trailer = <p>Loading movies...</p>;
+  let trailer;
   //Nếu ko tìm trailer - thay bằng poster
   //Nếu ko có poster thì thay bằng ảnh mặc định Netflix
   if (key) {
