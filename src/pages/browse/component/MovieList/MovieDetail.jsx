@@ -47,29 +47,23 @@ const MovieDetail = (props) => {
         //     src={`https://www.youtube.com/embed/${key}`}
         //   ></iframe>
         // );
-        console.log(key)
+        console.log(key);
         if (!key) {
-          if (movie.poster_path) {
-            trailer = (
-              <img
-                src={`${imgPath}${movie.poster_path}`}
-                style={{ width: "50%", display: "block", margin: "auto" }}
-              />
-            );
-          } else {
-            trailer = (
-              <img
-                src={`https://w0.peakpx.com/wallpaper/384/624/HD-wallpaper-netflix-logo-black-logo-netflix-pro-red.jpg`}
-                style={{ width: "50%", display: "block", margin: "auto" }}
-              />
-            );
-          }
+          trailer = (
+            <img
+              src={
+                movie.poster_path
+                  ? `${imgPath}${movie.poster_path}`
+                  : `https://w0.peakpx.com/wallpaper/384/624/HD-wallpaper-netflix-logo-black-logo-netflix-pro-red.jpg`
+              }
+              style={{ width: "50%", display: "block", margin: "auto" }}
+            />
+          );
         }
       }
     };
     showVideo();
     setIsLoading(false);
-    console.log(key)
   }, []);
   //Trailer của movie
   // let trailer = (
@@ -81,6 +75,7 @@ const MovieDetail = (props) => {
   //   ></iframe>
   // );
   let trailer = <p>Loading...</p>;
+  console.log(key);
   //Nếu ko tìm trailer - thay bằng poster
   //Nếu ko có poster thì thay bằng ảnh mặc định Netflix
   if (key) {
