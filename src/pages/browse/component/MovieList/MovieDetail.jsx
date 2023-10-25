@@ -10,9 +10,9 @@ const MovieDetail = (props) => {
   const [key, setKey] = useState("");
   //Biến check lỗi
   const [hasError, setHasError] = useState(false);
-const [isLoading, setIsLoading] = useState(false);
-// const [isLoadingKey, setIsLoadingKey] = useState(false);
-// const [isloaded, setLoadedTrailer] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoadingKey, setIsLoadingKey] = useState(false);
+  // const [isloaded, setLoadedTrailer] = useState(false);
   const movie = props.movieData;
   const movieID = props.movieID;
 
@@ -21,7 +21,7 @@ const [isLoading, setIsLoading] = useState(false);
     const showVideo = async () => {
       setIsLoading(true);
       const results = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${API_KEY}`
+        `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${API_KEY}`,
       );
       const data = await results.json();
       if (!data) {
@@ -30,7 +30,7 @@ const [isLoading, setIsLoading] = useState(false);
       if (data.results?.length > 0 || data.success) {
         //Filter movie có trailer ở Youtube
         const movieFound = data.results.filter(
-          (m) => m.site === "YouTube" && m.type === "Trailer"
+          (m) => m.site === "YouTube" && m.type === "Trailer",
         );
         //Nếu tìm được, lấy movie đầu tiêu; Nếu ko tìm được, lấy key của results đầu tiên
         // console.log(movieFound)
@@ -38,31 +38,31 @@ const [isLoading, setIsLoading] = useState(false);
           setKey(movieFound[0].key);
         } else {
           setKey(data.results[0].key);
-        } 
-        trailer = (
-          <iframe
-            frameBorder="0"
-            width="100%"
-            height="350px"
-            src={`https://www.youtube.com/embed/${key}`}
-          ></iframe>
-        );
+        }
+        // trailer = (
+        //   <iframe
+        //     frameBorder="0"
+        //     width="100%"
+        //     height="350px"
+        //     src={`https://www.youtube.com/embed/${key}`}
+        //   ></iframe>
+        // );
         if (!movieFound) {
           if (movie.poster_path) {
             trailer = (
-               <img
-                 src={`${imgPath}${movie.poster_path}`}
-                 style={{ width: "50%", display: "block", margin: "auto" }}
-               />
-             );
-           } else {
-             trailer = (
-               <img
-                 src={`https://w0.peakpx.com/wallpaper/384/624/HD-wallpaper-netflix-logo-black-logo-netflix-pro-red.jpg`}
-                 style={{ width: "50%", display: "block", margin: "auto" }}
-               />
-             );
-           }
+              <img
+                src={`${imgPath}${movie.poster_path}`}
+                style={{ width: "50%", display: "block", margin: "auto" }}
+              />
+            );
+          } else {
+            trailer = (
+              <img
+                src={`https://w0.peakpx.com/wallpaper/384/624/HD-wallpaper-netflix-logo-black-logo-netflix-pro-red.jpg`}
+                style={{ width: "50%", display: "block", margin: "auto" }}
+              />
+            );
+          }
         }
       }
     };
@@ -78,19 +78,19 @@ const [isLoading, setIsLoading] = useState(false);
   //     src={`https://www.youtube.com/embed/${key}`}
   //   ></iframe>
   // );
-  let trailer;
+  let trailer = <p>Loading...</p>;
   //Nếu ko tìm trailer - thay bằng poster
   //Nếu ko có poster thì thay bằng ảnh mặc định Netflix
-  // if (key) {
-  //   trailer = (
-  //     <iframe
-  //       frameBorder="0"
-  //       width="100%"
-  //       height="350px"
-  //       src={`https://www.youtube.com/embed/${key}`}
-  //     ></iframe>
-  //   );
-  // } 
+  if (key) {
+    trailer = (
+      <iframe
+        frameBorder="0"
+        width="100%"
+        height="350px"
+        src={`https://www.youtube.com/embed/${key}`}
+      ></iframe>
+    );
+  }
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
@@ -114,7 +114,7 @@ const [isLoading, setIsLoading] = useState(false);
               {truncate(movie?.overview, 150)}
             </div>
           </div>
-          <div>{!isLoading ? <p>Loading...</p> : trailer}</div>
+          <div>{isLoading ? <p>Loading...</p> : trailer}</div>
         </div>
       )}
     </div>
