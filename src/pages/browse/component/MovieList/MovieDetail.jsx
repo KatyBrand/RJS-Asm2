@@ -119,7 +119,7 @@ const MovieDetail = (props) => {
               {truncate(movie?.overview, 150)}
             </div>
           </div>
-          <div>{isLoading ? <p>Loading...</p> : trailer}</div>
+          <div>{trailer}</div>
         </div>
       )}
     </div>
