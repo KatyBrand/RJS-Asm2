@@ -73,7 +73,7 @@ const SearchForm = () => {
             </div>
           </div>
           {/* Khi input trống */}
-          {isEmpty && <p>You need to type something!</p>}
+          {isEmpty && <p style={{textAlign: 'center'}}>You need to type something!</p>}
           <div className={classes["search-buttons"]}>
             <button className={classes["button-reset"]}>RESET</button>
             <button
@@ -86,7 +86,7 @@ const SearchForm = () => {
         </div>
       </div>
       {/* Khi ko có results */}
-      {hasNoResults && <p>No movies are found! Try another keyword</p>}
+      {hasNoResults && <p style={{textAlign: 'center'}}>No movies are found! Try another keyword</p>}
       <ResultList data={movieData} />
     </div>
   );
