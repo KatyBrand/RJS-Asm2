@@ -69,7 +69,8 @@ const [isLoading, setIsLoading] = useState(false);
         />
       );
     }
-  } else {
+  } 
+  useEffect(()=> {
     trailer = (
       <iframe
         frameBorder="0"
@@ -78,7 +79,7 @@ const [isLoading, setIsLoading] = useState(false);
         src={`https://www.youtube.com/embed/${key}`}
       ></iframe>
     );
-  }
+  }, [key]);
 
   return (
     <div>
