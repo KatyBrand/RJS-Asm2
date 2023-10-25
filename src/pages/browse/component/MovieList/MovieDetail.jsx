@@ -11,7 +11,7 @@ const MovieDetail = (props) => {
   //Biến check lỗi
   const [hasError, setHasError] = useState(false);
 const [isLoading, setIsLoading] = useState(false);
-const [isLoadingKey, setIsLoadingKey] = useState(false);
+// const [isLoadingKey, setIsLoadingKey] = useState(false);
 // const [isloaded, setLoadedTrailer] = useState(false);
   const movie = props.movieData;
   const movieID = props.movieID;
@@ -34,13 +34,26 @@ const [isLoadingKey, setIsLoadingKey] = useState(false);
         );
         //Nếu tìm được, lấy movie đầu tiêu; Nếu ko tìm được, lấy key của results đầu tiên
         if (movieFound.length > 0) {
-          setIsLoadingKey(true);
           setKey(movieFound[0].key);
-          setIsLoadingKey(false);
         } else {
-          setIsLoadingKey(true);
           setKey(data.results[0].key);
-          setIsLoadingKey(false);
+        } 
+        if (movieFound.length === 0) {
+          if (movie.poster_path) {
+            trailer = (
+               <img
+                 src={`${imgPath}${movie.poster_path}`}
+                 style={{ width: "50%", display: "block", margin: "auto" }}
+               />
+             );
+           } else {
+             trailer = (
+               <img
+                 src={`https://w0.peakpx.com/wallpaper/384/624/HD-wallpaper-netflix-logo-black-logo-netflix-pro-red.jpg`}
+                 style={{ width: "50%", display: "block", margin: "auto" }}
+               />
+             );
+           }
         }
       }
     };
@@ -68,23 +81,7 @@ const [isLoadingKey, setIsLoadingKey] = useState(false);
         src={`https://www.youtube.com/embed/${key}`}
       ></iframe>
     );
-  } else {
-   if (movie.poster_path) {
-     trailer = (
-        <img
-          src={`${imgPath}${movie.poster_path}`}
-          style={{ width: "50%", display: "block", margin: "auto" }}
-        />
-      );
-    } else {
-      trailer = (
-        <img
-          src={`https://w0.peakpx.com/wallpaper/384/624/HD-wallpaper-netflix-logo-black-logo-netflix-pro-red.jpg`}
-          style={{ width: "50%", display: "block", margin: "auto" }}
-        />
-      );
-    }
-  }
+  } 
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
@@ -108,7 +105,7 @@ const [isLoadingKey, setIsLoadingKey] = useState(false);
               {truncate(movie?.overview, 150)}
             </div>
           </div>
-          <div>{isLoadingKey ? <p>Loading...</p> : trailer}</div>
+          <div>{isLoading ? <p>Loading...</p> : trailer}</div>
         </div>
       )}
     </div>
