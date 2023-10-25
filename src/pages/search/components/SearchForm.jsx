@@ -34,7 +34,7 @@ const SearchForm = () => {
       setMovieData(data.results);
       console.log(data.results);
 
-      if (!data.results) {
+      if (data.results.length === 0) {
         setHasNoResults(true);
       }
     };
