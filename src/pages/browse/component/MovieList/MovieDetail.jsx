@@ -69,6 +69,7 @@ const MovieDetail = (props) => {
     };
     showVideo();
     setIsLoading(false);
+    console.log(key)
   }, []);
   //Trailer của movie
   // let trailer = (
