@@ -55,17 +55,17 @@ const [isLoading, setIsLoading] = useState(false);
   //Nếu ko tìm trailer - thay bằng poster
   //Nếu ko có poster thì thay bằng ảnh mặc định Netflix
   if (!key) {
-    if (!movie.poster_path) {
-      trailer = (
+    if (movie.poster_path) {
+     trailer = (
         <img
-          src={`https://w0.peakpx.com/wallpaper/384/624/HD-wallpaper-netflix-logo-black-logo-netflix-pro-red.jpg`}
+          src={`${imgPath}${movie.poster_path}`}
           style={{ width: "50%", display: "block", margin: "auto" }}
         />
       );
     } else {
       trailer = (
         <img
-          src={`${imgPath}${movie.poster_path}`}
+          src={`https://w0.peakpx.com/wallpaper/384/624/HD-wallpaper-netflix-logo-black-logo-netflix-pro-red.jpg`}
           style={{ width: "50%", display: "block", margin: "auto" }}
         />
       );
