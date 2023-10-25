@@ -51,6 +51,7 @@ const MovieDetail = (props) => {
         if (!key) {
           trailer = (
             <img
+            alt='poster'
               src={
                 movie.poster_path
                   ? `${imgPath}${movie.poster_path}`
