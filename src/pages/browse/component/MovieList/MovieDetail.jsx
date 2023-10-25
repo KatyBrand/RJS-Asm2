@@ -33,14 +33,21 @@ const [isLoading, setIsLoading] = useState(false);
           (m) => m.site === "YouTube" && m.type === "Trailer"
         );
         //Nếu tìm được, lấy movie đầu tiêu; Nếu ko tìm được, lấy key của results đầu tiên
-        console.log(movieFound)
+        // console.log(movieFound)
         if (movieFound.length > 0) {
           setKey(movieFound[0].key);
         } else {
           setKey(data.results[0].key);
         } 
+        trailer = (
+          <iframe
+            frameBorder="0"
+            width="100%"
+            height="350px"
+            src={`https://www.youtube.com/embed/${key}`}
+          ></iframe>
+        );
         if (!movieFound) {
-
           if (movie.poster_path) {
             trailer = (
                <img
